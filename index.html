@@ -11,6 +11,7 @@
 	<script src="http://d3js.org/topojson.v1.min.js"></script>
 	
 	<link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.css' rel='stylesheet' />
+	<link href='styles.css' rel='stylesheet' />
 	
 	<script src="leaflet-0.7.2/leaflet.js" type="text/javascript"></script>
 	
@@ -19,21 +20,11 @@
 
 </head>
 <body>
-<style type="text/css">
-html,
-body,
-#map {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    background: #333;
-}
-
-</style>
-
 <div id="map"></div>
+
+<div id="explainer"><p>This map shows vehicles that were booted in St. Louis City between October 2012 and April 2014. The larger the circle, the more times that address was listed in the data compiled by the city.</p>
+<p>The data included an address, a boot date and a tow date. Not all boot dates had tow dates. Of the initial list of 7,337 boots provided by the city, we were unable to map nearly 500. Some lacked a street name, some lacked a number. A few were inexplicable: "NN" or "V", for example. Some boots appeared to be listed by the block the vehicle was on, while others appeared to be listed by the exact address. Many included typos and misspellings, like substituting the letter "O" for zero, or vice versa. 10th Street was listed as "10 TH ST.", "10 TH", "10TH ST.", "10TH STREET", "10TH", "10TH." and simply, "10". Dr. Martin Luther King Dr. was listed as "DR M L KING", "MARTIN LUTHER KING", "DR MARTIN LUTHER KING", "DR MLK" and "MLK".</p>
+</div>
 
 <script type="text/javascript" src="data.js"></script>
 
@@ -43,7 +34,7 @@ var northEast = L.latLng(38.774, -90.074),
     southWest = L.latLng(38.464, -90.479),
     bounds = L.latLngBounds(southWest, northEast);
 
-var map = L.map('map', {scrollWheelZoom: false, attribution: ''}).setView([38.639, -90.254], 11).setMaxBounds(bounds);
+var map = L.map('map', {scrollWheelZoom: false, attribution: ''}).setView([38.639, -90.254], 12).setMaxBounds(bounds);
 
 var tiles = L.mapbox.tileLayer('stlpr.hi06d4b5')
     .addTo(map);
